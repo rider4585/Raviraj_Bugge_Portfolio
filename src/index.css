@@ -1,0 +1,48 @@
+/* @import "tailwindcss/preflight";
+@tailwind utilities; */
+@import "tailwindcss";
+
+/* Global overrides and micro-styling */
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(0, 0, 0, 0.06);
+  --accent: #7c3aed; /* tune theme accent */
+  --accent-1: #7c3aed; /* violet */
+  --accent-2: #06b6d4; /* cyan */
+  --code-bg: rgba(12, 15, 23, 0.86); /* dark glass for inline code preview */
+  --code-text: #47494b; /* soft code text */
+  --code-muted: rgba(230, 238, 248, 0.7);
+}
+
+/* subtle page padding / breathing */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Glass card helper */
+.glass {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.6)
+  );
+  backdrop-filter: blur(6px) saturate(120%);
+  border-radius: 1rem;
+  border: 1px solid var(--glass-border);
+}
+
+/* small utility for soft focus outlines for accessibility */
+:focus {
+  outline: 3px solid rgba(124, 58, 237, 0.18);
+  outline-offset: 2px;
+}
+
+/* hide native cursor because we use custom small cursor */
+[data-use-custom-cursor="true"] * {
+  cursor: none;
+}

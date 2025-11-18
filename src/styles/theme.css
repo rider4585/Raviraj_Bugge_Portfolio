@@ -1,0 +1,117 @@
+/* src/styles/theme.css */
+
+/* ------------------------------ */
+/* LIGHT THEME (default)          */
+/* ------------------------------ */
+
+:root.dark {
+  /* text */
+  --text-primary: #e8eef8; /* clear readable headings/content */
+  --text-secondary: #a9b7c9; /* supportive / meta text */
+  --muted: #7f8b99; /* tertiary UI */
+
+  /* page */
+  --page-bg: linear-gradient(
+    180deg,
+    #051021 0%,
+    #071428 60%,
+    #071822 100%
+  ); /* deep blue, subtle gradient */
+
+  /* card/glass surfaces */
+  --card-bg: rgba(22, 26, 34, 0.82); /* main card surface - slightly lifted */
+  --card-bg-soft: rgba(22, 26, 34, 0.64); /* soft variant for subtle UI */
+  --glass-bg: rgba(18, 22, 30, 0.62);
+  --glass-border: rgba(
+    120,
+    150,
+    200,
+    0.07
+  ); /* faint cool border for separation */
+  --card-shadow: 0 10px 36px rgba(2, 6, 20, 0.55);
+
+  /* accents */
+  --accent-1: #8b5cf6; /* violet — slightly brighter */
+  --accent-2: #00d0d9; /* cyan — vivid but friendly */
+  --accent-strong: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+
+  /* subtle UI accents */
+  --chip-bg: rgba(255, 255, 255, 0.03); /* chips behind text */
+  --chip-border: rgba(255, 255, 255, 0.04);
+  --focus-ring: rgba(139, 92, 246, 0.16);
+
+  /* code */
+  --code-bg: rgba(6, 10, 16, 0.78); /* dark, deep code panel */
+  --code-text: #e6f0ff;
+
+  /* buttons */
+  --btn-primary-text: #041027;
+  --btn-primary-bg: linear-gradient(
+    90deg,
+    #eef1ff00 0%,
+    #eef1ff00 100%
+  ); /* not used directly, use accent gradient via var */
+  --btn-secondary-bg: rgba(255, 255, 255, 0.03);
+  --btn-border: rgba(255, 255, 255, 0.06);
+
+  --transition-speed: 220ms;
+}
+
+/* Smooth transitions for themeable properties */
+* {
+  transition: background-color var(--transition-speed) ease,
+    color var(--transition-speed) ease,
+    border-color var(--transition-speed) ease,
+    box-shadow var(--transition-speed) ease;
+}
+
+/* ------------------------------ */
+/* DARK THEME                     */
+/* ------------------------------ */
+
+:root.dark {
+  /* Text */
+  --text-primary: #e6eef8; /* bright, slightly cool white for headings/content */
+  --text-secondary: #b6c3d6; /* softer, desaturated for supportive text */
+
+  /* Page background (deep, slightly blue) */
+  --page-bg: linear-gradient(180deg, #071022 0%, #0b1220 100%);
+
+  /* Card / glass surfaces (slightly lifted, cool-blue tint) */
+  --card-bg: rgba(18, 22, 30, 0.78); /* main surface */
+  --card-bg-soft: rgba(20, 24, 34, 0.62); /* lighter for subtle elements */
+  --glass-bg: rgba(16, 20, 28, 0.6); /* glassy surface */
+  --glass-border: rgba(
+    120,
+    150,
+    200,
+    0.08
+  ); /* cool faint border for separation */
+
+  /* Shadows: colder but still visible for depth */
+  --card-shadow: 0 10px 36px rgba(3, 8, 20, 0.55);
+
+  /* Accent gradient — keep brand violet → cyan but slightly brighter on dark bg */
+  --accent-1: #8b5cf6; /* brighter violet */
+  --accent-2: #00d1df; /* slightly greener-cyan for better pop on dark */
+
+  /* Muted color for tertiary UI elements */
+  --muted: #7f94a9;
+
+  /* Code snippets */
+  --code-bg: rgba(6, 10, 16, 0.72); /* deeper code surface */
+  --code-text: #eaf2ff; /* soft off-white for code text */
+
+  /* Small UI tweaks */
+  --focus-ring: rgba(139, 92, 246, 0.18); /* subtle violet focus ring */
+  --transition-speed: 220ms;
+}
+
+/* Some utility to use card backgrounds quickly */
+.bg-card {
+  background: var(--card-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--card-shadow);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+}
