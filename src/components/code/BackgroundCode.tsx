@@ -1,5 +1,5 @@
 // src/components/code/BackgroundCode.tsx
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { createPortal } from "react-dom";
 import { motion } from "framer-motion";
 import usePrefersReducedMotion from "../../hooks/usePrefersReducedMotion";

@@ -11,7 +11,7 @@ const cardVariants = {
 };
 
 export default function ProjectCard({ project }: Props) {
-  const { id, title, short, impact, tech, repo, live } = project;
+  const { id, title, short, impact, tech, live } = project;
 
   return (
     <motion.article
