@@ -11,7 +11,7 @@ const cardVariants = {
 };
 
 export default function ProjectCard({ project }: Props) {
-  const { id, title, short, impact, tech, repo } = project;
+  const { id, title, short, impact, tech, repo, live } = project;
 
   return (
     <motion.article
@@ -64,22 +64,22 @@ export default function ProjectCard({ project }: Props) {
         </div>
 
         <div className="mt-4 flex items-center gap-4">
-          {repo ? (
+          {live ? (
             <a
-              href={repo}
+              href={live}
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm underline"
               style={{ color: "var(--text-primary)" }}
             >
-              Repository →
+              Live Link
             </a>
           ) : (
             <span
               className="text-sm"
               style={{ color: "var(--text-secondary)" }}
             >
-              Private code
+              Private Project
             </span>
           )}
         </div>

@@ -4,6 +4,7 @@ import CursorEffect from "./components/micro/CursorEffect";
 import ScrollProgress from "./components/layout/ScrollProgress";
 import BackgroundCode from "./components/code/BackgroundCode";
 // import ThemeToggle from "./components/ui/ThemeToggle";
+import CustomCursor from "./components/ui/CustomCursor";
 
 const App: React.FC = () => {
   return (
@@ -12,6 +13,7 @@ const App: React.FC = () => {
           <ThemeToggle />
         </div> */}
       {/* decorative background */}
+      <CustomCursor />
       <BackgroundCode />
 
       {/* Global micro interactions */}

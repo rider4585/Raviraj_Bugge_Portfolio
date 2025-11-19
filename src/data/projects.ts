@@ -31,7 +31,7 @@ export const projects: Project[] = [
   {
     id: "esc-web",
     title: "ESC Web App",
-    role: "Frontend Lead",
+    role: "Lead Frontend Developer",
     short:
       "UI modernization and templating for a large image-heavy application.",
     impact: "Reduced average load time by ~60% after refactor.",
@@ -39,20 +39,35 @@ export const projects: Project[] = [
       "Rewrote heavy image pages into efficient templates, added prefetching, and implemented micro-interactions for editorial workflows.",
     tech: ["react", "tailwind", "vite"],
     thumbnail: "/projects/esc-web.png",
-    live: null,
+    live: "https://guidelines.escardio.org/home/",
     repo: null,
   },
   {
     id: "cdst-editor",
     title: "CDST Editor",
-    role: "Fullstack / Lead UI Engineer",
+    role: "Lead Developer",
     short:
       "Clinical Decision Support Tool (CDST) editor — editor UI for building and managing clinical decision rules and templates.",
     impact:
       "Enabled editors to create and update clinical decision templates faster with inline validation and preview; reduced edit-to-publish time by ~50%.",
     details:
       "Designed and implemented the interactive editor for CDST: a single-page editor with live preview, schema-driven validation, versioning/audit trail, and bulk import/export. Worked across the stack — backend APIs (Yii/PHP), PostgreSQL schemas, and a responsive React + Tailwind frontend with micro-interactions for a smooth authoring experience.",
-    tech: ["react", "php", "yii", "postgres", "tailwind", "typescript"],
+    tech: ["php", "mysql", "aws"],
+    thumbnail: null,
+    live: null,
+    repo: null,
+  },
+  {
+    id: "acoms",
+    title: "ACOMS",
+    role: "Fullstack / Lead UI Engineer",
+    short:
+      "Cross-platform clinical content management system powering editorial workflows.",
+    impact:
+      "Improved editorial efficiency by ~40% with streamlined UI flows, optimized page rendering, and better content validation tools.",
+    details:
+      "Worked on modernizing ACOMS — a clinical content management platform — by rebuilding key UI modules in React with modular components, real-time validation, optimized data loading patterns, and reusable layout primitives. Integrated backend APIs, improved accessibility, and introduced scalable design patterns for future modules.",
+    tech: ["php", "mysql", "aws"],
     thumbnail: null,
     live: null,
     repo: null,

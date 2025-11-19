@@ -24,6 +24,14 @@ html {
   scroll-behavior: smooth;
 }
 
+html, body {
+  cursor: none !important;
+}
+
+button, a, input, textarea, select, [role="button"], [data-clickable="true"] {
+  cursor: none !important;
+}
+
 /* Glass card helper */
 .glass {
   background: linear-gradient(

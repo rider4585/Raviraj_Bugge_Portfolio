@@ -31,7 +31,7 @@ export const skills: Skill[] = [
     level: "expert",
     tags: ["Hooks", "Vite", "Framer Motion"],
     description: "Build interactive UIs & SPAs.",
-    years: 4,
+    years: 2,
     iconId: "react",
   },
   {
@@ -41,6 +41,7 @@ export const skills: Skill[] = [
     level: "expert",
     tags: ["semantic", "accessibility"],
     description: "Semantic markup for structured UIs.",
+    years: 3,
     iconId: "html",
   },
   {
@@ -50,6 +51,7 @@ export const skills: Skill[] = [
     level: "expert",
     tags: ["utility-first", "JIT"],
     description: "Fast utility-first styling.",
+    years: 2.5,
     iconId: "tailwind",
   },
   {
@@ -59,6 +61,7 @@ export const skills: Skill[] = [
     level: "advanced",
     tags: ["typing", "tooling"],
     description: "Type-safe JavaScript for large apps.",
+    years: 1,
     iconId: "typescript",
   },
 
@@ -70,6 +73,7 @@ export const skills: Skill[] = [
     level: "expert",
     tags: ["Yii1.1", "Yii2"],
     description: "Server-side logic with Yii.",
+    years: 3,
     iconId: "php",
   },
   {
@@ -79,6 +83,7 @@ export const skills: Skill[] = [
     level: "advanced",
     tags: ["Express", "API"],
     description: "Backend JS runtime & APIs.",
+    years: 3,
     iconId: "node",
   },
   {
@@ -88,6 +93,7 @@ export const skills: Skill[] = [
     level: "intermediate",
     tags: ["ORM", "migrations"],
     description: "ORM for Node.js projects.",
+    years: 2,
     iconId: "sequelize",
   },
 
@@ -99,6 +105,7 @@ export const skills: Skill[] = [
     level: "advanced",
     tags: ["SQL", "indexes"],
     description: "Relational DB for high accuracy systems.",
+    years: 1,
     iconId: "postgresql",
   },
   {
@@ -108,6 +115,7 @@ export const skills: Skill[] = [
     level: "advanced",
     tags: ["RDBMS"],
     description: "Popular relational DB.",
+    years: 3,
     iconId: "mysql",
   },
   {
@@ -117,6 +125,7 @@ export const skills: Skill[] = [
     level: "intermediate",
     tags: ["cache", "pubsub"],
     description: "In-memory caching.",
+    years: 1,
     iconId: "redis",
   },
 
@@ -128,6 +137,7 @@ export const skills: Skill[] = [
     level: "advanced",
     tags: ["vector search", "retrieval"],
     description: "Retrieval Augmented Generation pipelines.",
+    years: 1.5,
     iconId: "chroma",
   },
   {
@@ -137,6 +147,7 @@ export const skills: Skill[] = [
     level: "advanced",
     tags: ["vector db"],
     description: "Lightweight vector DB.",
+    years: 1.5,
     iconId: "chroma",
   },
   {
@@ -146,7 +157,8 @@ export const skills: Skill[] = [
     level: "intermediate",
     tags: ["local models"],
     description: "Private on-device LLMs.",
-    iconId: "nodedotjs", // placeholder, Simple Icons doesn't have Ollama yet
+    years: 1.5,
+    iconId: "nodedotjs",
   },
 
   // DEVOPS ---------------------------
@@ -157,6 +169,7 @@ export const skills: Skill[] = [
     level: "advanced",
     tags: ["CI/CD", "automation"],
     description: "Automation pipelines for deployment.",
+    years: 1.5,
     iconId: "github-actions",
   },
   {
@@ -166,6 +179,7 @@ export const skills: Skill[] = [
     level: "advanced",
     tags: ["S3", "CDN"],
     description: "Cloud deployments & asset hosting.",
+    years: 3,
     iconId: "amazonaws",
   },
   {
@@ -175,6 +189,7 @@ export const skills: Skill[] = [
     level: "intermediate",
     tags: ["process manager"],
     description: "Runtime process manager for Node.",
+    years: 1.5,
     iconId: "node",
   },
 
@@ -186,6 +201,7 @@ export const skills: Skill[] = [
     level: "expert",
     tags: ["version control"],
     description: "Branching, PRs, code management.",
+    years: 3,
     iconId: "git",
   },
   {
@@ -195,6 +211,7 @@ export const skills: Skill[] = [
     level: "intermediate",
     tags: ["prototyping"],
     description: "UI/UX prototyping.",
+    years: 3,
     iconId: "figma",
   },
   {
@@ -204,6 +221,7 @@ export const skills: Skill[] = [
     level: "intermediate",
     tags: ["testing"],
     description: "Unit testing for JS/TS apps.",
+    years: 2,
     iconId: "jest",
   },
   {
@@ -213,6 +231,7 @@ export const skills: Skill[] = [
     level: "advanced",
     tags: ["shell", "admin"],
     description: "Server ops & CLI.",
+    years: 3,
     iconId: "linux",
   },
 ];
