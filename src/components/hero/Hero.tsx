@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
             Raviraj Mahendra Bugge
           </h1>
           <p className="text-sm text-gray-600 mt-1">
-            Lead Software Engineer — Full Stack
+            Senior Software Engineer — Full Stack
           </p>
         </div>
       </motion.div>

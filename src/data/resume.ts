@@ -10,7 +10,7 @@ export type ExperienceItem = {
 export const experience: ExperienceItem[] = [
   {
     company: "Tagrem India Pvt. Ltd.",
-    role: "Lead Software Engineer",
+    role: "Senior Software Engineer",
     period: "Jul 2025 - Present",
     location: "Pune, Maharashtra",
     achievements: [
