@@ -118,16 +118,6 @@ export const skills: Skill[] = [
     years: 3,
     iconId: "mysql",
   },
-  {
-    id: "redis",
-    label: "Redis",
-    group: "DB",
-    level: "intermediate",
-    tags: ["cache", "pubsub"],
-    description: "In-memory caching.",
-    years: 1,
-    iconId: "redis",
-  },
 
   // AI / RAG -------------------------
   {
