@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 // src/context/ThemeContext.tsx
 import React, { createContext, useContext, useEffect, useState } from "react";
 
@@ -19,7 +20,9 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
     try {
       const stored = localStorage.getItem("theme");
       if (stored === "dark" || stored === "light") return stored;
-    } catch {}
+    } catch {
+      // localStorage may be unavailable in restricted browser contexts.
+    }
 
     // Otherwise default to DARK
     return "dark";
@@ -29,7 +32,9 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
     document.documentElement.classList.toggle("dark", theme === "dark");
     try {
       localStorage.setItem("theme", theme);
-    } catch {}
+    } catch {
+      // Theme persistence is optional.
+    }
   }, [theme]);
 
   const toggle = () => setTheme((t) => (t === "light" ? "dark" : "light"));

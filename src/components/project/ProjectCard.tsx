@@ -1,88 +1,63 @@
-// src/components/projects/ProjectCard.tsx
 import { motion } from "framer-motion";
 import type { Project } from "../../data/projects";
-import TechIcon from "../skills/TechIcon";
 
 type Props = { project: Project };
 
-const cardVariants = {
-  idle: { scale: 1 },
-  hover: { scale: 1.02 },
-};
-
 export default function ProjectCard({ project }: Props) {
-  const { id, title, short, impact, tech, live } = project;
-
   return (
     <motion.article
       layout
-      initial="idle"
-      whileHover="hover"
-      whileFocus="hover"
-      variants={cardVariants}
-      className="group relative rounded-xl overflow-hidden"
-      aria-labelledby={`${id}-title`}
+      whileHover={{ y: -4 }}
+      className="flex h-full flex-col rounded-lg border border-white/10 bg-[#111827] p-5 shadow-xl shadow-black/15 transition"
+      aria-labelledby={`${project.id}-title`}
     >
-      <div
-        className="p-5"
-        style={{
-          background: "var(--card-bg)",
-          border: "1px solid var(--glass-border)",
-          boxShadow: "var(--card-shadow)",
-        }}
-      >
-        <div className="flex items-start justify-between gap-4">
-          <div className="min-w-0">
-            <h3
-              id={`${id}-title`}
-              style={{ color: "var(--text-primary)" }}
-              className="text-base font-semibold"
-            >
-              {title}
-            </h3>
-            <p
-              style={{ color: "var(--text-secondary)" }}
-              className="text-sm mt-1"
-            >
-              {short}
-            </p>
-            {impact && (
-              <p
-                className="mt-2 text-xs"
-                style={{ color: "var(--text-secondary)" }}
-              >
-                {impact}
-              </p>
-            )}
-          </div>
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <span className="rounded border border-[#f4c95d]/30 bg-[#f4c95d]/10 px-2.5 py-1 text-xs font-semibold text-[#f4c95d]">
+          {project.role}
+        </span>
+        {project.confidential && (
+          <span className="rounded border border-white/10 px-2.5 py-1 text-xs font-medium text-slate-400">
+            Public-safe summary
+          </span>
+        )}
+      </div>
 
-          <div className="hidden sm:flex items-center gap-2">
-            {tech?.slice(0, 4).map((t) => (
-              <TechIcon key={t} id={t} size={22} />
-            ))}
-          </div>
-        </div>
+      <h3 id={`${project.id}-title`} className="mt-5 text-2xl font-semibold text-white">
+        {project.title}
+      </h3>
+      <p className="mt-2 text-sm leading-6 text-slate-400">{project.short}</p>
 
-        <div className="mt-4 flex items-center gap-4">
-          {live ? (
-            <a
-              href={live}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm underline"
-              style={{ color: "var(--text-primary)" }}
-            >
-              Live Link
-            </a>
-          ) : (
-            <span
-              className="text-sm"
-              style={{ color: "var(--text-secondary)" }}
-            >
-              Private Project
-            </span>
-          )}
+      <div className="mt-6 space-y-5">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Problem</p>
+          <p className="mt-2 text-sm leading-6 text-slate-300">{project.problem}</p>
         </div>
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Contribution</p>
+          <p className="mt-2 text-sm leading-6 text-slate-300">{project.contribution}</p>
+        </div>
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Impact</p>
+          <p className="mt-2 text-sm leading-6 text-slate-300">{project.impact}</p>
+        </div>
+      </div>
+
+      <div className="mt-6 flex flex-wrap gap-2">
+        {project.tech.map((tech) => (
+          <span key={tech} className="rounded bg-white/[0.06] px-2.5 py-1 text-xs font-medium text-slate-300">
+            {tech}
+          </span>
+        ))}
+      </div>
+
+      <div className="mt-auto pt-6">
+        {project.live ? (
+          <a href={project.live} target="_blank" rel="noopener noreferrer" className="inline-flex rounded-md border border-white/15 px-3 py-2 text-sm font-semibold text-white transition hover:border-[#f4c95d]/60 hover:text-[#f4c95d] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f4c95d]">
+            View Live
+          </a>
+        ) : (
+          <span className="text-sm text-slate-500">Private client project</span>
+        )}
       </div>
     </motion.article>
   );

@@ -48,7 +48,7 @@ const CursorEffect: React.FC = () => {
       });
       document.documentElement.removeAttribute("data-use-custom-cursor");
     };
-  }, []);
+  }, [mouseX, mouseY]);
 
   return (
     <motion.div

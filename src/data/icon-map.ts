@@ -17,7 +17,6 @@ import {
 //   siAmazonaws,
   siFirebase,
   siJest,
-  siYii,
   siSequelize,
 //   siChroma,
   siFigma,
@@ -28,9 +27,10 @@ import {
   siNodedotjs,
   siNextdotjs,
 } from "simple-icons/icons";
+import type { SimpleIcon } from "simple-icons";
 
 // Map your skill IDs to Simple Icons
-export const ICON_MAP: Record<string, any> = {
+export const ICON_MAP: Record<string, SimpleIcon> = {
   react: siReact,
   php: siPhp,
   postgres: siPostgresql,
@@ -51,7 +51,6 @@ export const ICON_MAP: Record<string, any> = {
 //   aws: siAmazonaws,
   firebase: siFirebase,
   jest: siJest,
-  yii: siYii,
   sequelize: siSequelize,
 //   chroma: siChroma,
   figma: siFigma,

@@ -18,7 +18,6 @@ const GLOBAL_KEY = "__PORTFOLIO_RATE_LIMIT_MAP__";
 
 declare global {
   // attach to globalThis so values persist across module reloads in same instance
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   var __PORTFOLIO_RATE_LIMIT_MAP__: Map<string, Entry> | undefined;
 }
 
@@ -51,7 +50,7 @@ export function rateLimit(
     entry.count += 1;
     map.set(ip, entry);
     return true;
-  } catch (err) {
+  } catch {
     // on error, allow (fail open)
     return true;
   }

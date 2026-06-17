@@ -27,7 +27,6 @@ export default function MobileSkillSheet({ open, onClose, skill }: Props) {
     try {
       onClose?.();
     } catch (err) {
-      // eslint-disable-next-line no-console
       console.warn("MobileSkillSheet: onClose threw", err);
     } finally {
       document.body.style.overflow = "";

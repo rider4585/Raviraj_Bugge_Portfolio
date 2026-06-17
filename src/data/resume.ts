@@ -14,12 +14,12 @@ export const experience: ExperienceItem[] = [
     period: "Jul 2025 - Present",
     location: "Pune, Maharashtra",
     achievements: [
-      "Building and maintaining full-stack features using Yii (PHP), React.js, and PostgreSQL.",
+      "Building and maintaining full-stack features using PHP, React.js, and PostgreSQL.",
       "Modernizing legacy modules to improve maintainability and long-term scalability.",
       "Supporting junior developers, and improving codebase quality.",
       "Collaborating with cross-functional teams to deliver reliable business-critical features.",
     ],
-    tech: ["Yii", "React", "PostgreSQL", "Tailwind"],
+    tech: ["PHP", "React", "PostgreSQL", "Tailwind"],
   },
 
   {

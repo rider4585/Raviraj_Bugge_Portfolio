@@ -1,8 +1,10 @@
 // src/data/skills.ts
+export type SkillGroup = "Frontend" | "Backend" | "AI" | "DB" | "DevOps" | "Other";
+
 export type Skill = {
   id: string;
   label: string;
-  group?: "Frontend" | "Backend" | "AI" | "DB" | "DevOps" | "Other";
+  group?: SkillGroup;
   level?: "beginner" | "intermediate" | "advanced" | "expert";
   tags?: string[];
   description?: string;
@@ -22,6 +24,33 @@ export type Skill = {
   iconId?: string; // <-- NEW (single icon id)
 };
 
+export const skillGroups: Record<SkillGroup, { title: string; focus: string }> = {
+  Frontend: {
+    title: "Frontend Product Engineering",
+    focus: "React interfaces, responsive systems, interaction design, and maintainable component models.",
+  },
+  Backend: {
+    title: "Backend & APIs",
+    focus: "PHP, Node/Express APIs, server-side logic, integrations, and operational reliability.",
+  },
+  DB: {
+    title: "Data Modeling",
+    focus: "Relational schemas, migrations, query tuning, validation, and content-heavy data workflows.",
+  },
+  AI: {
+    title: "RAG & Local AI",
+    focus: "Retrieval pipelines, vector search, ChromaDB, Ollama, and private knowledge experiences.",
+  },
+  DevOps: {
+    title: "Delivery & Runtime",
+    focus: "CI/CD, Linux deployments, PM2, AWS assets, and repeatable release processes.",
+  },
+  Other: {
+    title: "Engineering Practice",
+    focus: "Git workflows, testing, product collaboration, UI prototyping, and maintainability habits.",
+  },
+};
+
 export const skills: Skill[] = [
   // FRONTEND -------------------------
   {
@@ -30,7 +59,7 @@ export const skills: Skill[] = [
     group: "Frontend",
     level: "expert",
     tags: ["Hooks", "Vite", "Framer Motion"],
-    description: "Build interactive UIs & SPAs.",
+    description: "Production React applications with reusable components, stateful flows, and polished UI behavior.",
     years: 2,
     iconId: "react",
   },
@@ -68,11 +97,11 @@ export const skills: Skill[] = [
   // BACKEND -------------------------
   {
     id: "php",
-    label: "PHP (Yii)",
+    label: "PHP",
     group: "Backend",
     level: "expert",
-    tags: ["Yii1.1", "Yii2"],
-    description: "Server-side logic with Yii.",
+    tags: ["APIs", "server-side"],
+    description: "Server-side logic and application workflows.",
     years: 3,
     iconId: "php",
   },
@@ -158,7 +187,7 @@ export const skills: Skill[] = [
     group: "DevOps",
     level: "advanced",
     tags: ["CI/CD", "automation"],
-    description: "Automation pipelines for deployment.",
+    description: "Automation pipelines for build, checks, and deployment.",
     years: 1.5,
     iconId: "github-actions",
   },
@@ -168,7 +197,7 @@ export const skills: Skill[] = [
     group: "DevOps",
     level: "advanced",
     tags: ["S3", "CDN"],
-    description: "Cloud deployments & asset hosting.",
+    description: "Cloud asset hosting, distribution, and deployment support.",
     years: 3,
     iconId: "amazonaws",
   },

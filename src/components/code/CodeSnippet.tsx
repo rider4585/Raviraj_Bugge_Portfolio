@@ -1,7 +1,7 @@
 // src/components/code/CodeSnippet.tsx
 import { useEffect, useState } from "react";
 // import usePrefersReducedMotion from "../../hooks/usePrefersReducedMotion";
-import type { ReactNode } from "react";
+import type { ComponentType, CSSProperties, ReactNode } from "react";
 
 type Props = {
   code: string;
@@ -14,6 +14,19 @@ type Props = {
 
 const allowedRunnableLangs = new Set(["html", "markup"]);
 
+type HighlighterProps = {
+  language: string;
+  style?: Record<string, unknown>;
+  customStyle?: CSSProperties;
+  children: string;
+};
+
+type SyntaxHighlighterModule = {
+  default: ComponentType<HighlighterProps> & {
+    registerLanguage?: (language: string, grammar: unknown) => void;
+  };
+};
+
 export default function CodeSnippet({
   code,
   lang = "html",
@@ -22,19 +35,18 @@ export default function CodeSnippet({
   className,
 }: Props) {
   // const reduce = usePrefersReducedMotion();
-  const [Highlighter, setHighlighter] = useState<any>(null);
-  const [hlStyle, setHlStyle] = useState<any>(null);
+  const [Highlighter, setHighlighter] = useState<ComponentType<HighlighterProps> | null>(null);
+  const [hlStyle, setHlStyle] = useState<Record<string, unknown>>();
   const [loading, setLoading] = useState(true);
   const [showPreview, setShowPreview] = useState(false);
 
   useEffect(() => {
     let mounted = true;
-    setLoading(true);
     (async () => {
       try {
-        const mod: any = await import(
+        const mod = (await import(
           "react-syntax-highlighter/dist/esm/prism-light"
-        );
+        )) as SyntaxHighlighterModule;
         const jsxLang = await import(
           "react-syntax-highlighter/dist/esm/languages/prism/jsx"
         );
@@ -50,15 +62,11 @@ export default function CodeSnippet({
         const phpLang = await import(
           "react-syntax-highlighter/dist/esm/languages/prism/php"
         );
-        const styleMod: any = await import(
+        const styleMod = (await import(
           "react-syntax-highlighter/dist/esm/styles/prism"
-        );
+        )) as Record<string, Record<string, unknown>>;
 
-        if (
-          mod &&
-          mod.default &&
-          typeof mod.default.registerLanguage === "function"
-        ) {
+        if (typeof mod.default.registerLanguage === "function") {
           mod.default.registerLanguage("jsx", jsxLang.default || jsxLang);
           mod.default.registerLanguage("tsx", jsxLang.default || jsxLang);
           mod.default.registerLanguage("html", htmlLang.default || htmlLang);
@@ -69,10 +77,9 @@ export default function CodeSnippet({
         }
 
         const style =
-          (styleMod && (styleMod.okaidia || styleMod.default || styleMod)) ||
-          {};
+          styleMod.okaidia || styleMod.default || {};
         if (mounted) {
-          setHighlighter(() => mod.default || mod);
+          setHighlighter(() => mod.default);
           setHlStyle(style);
         }
       } catch {

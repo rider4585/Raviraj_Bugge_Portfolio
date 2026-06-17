@@ -3,11 +3,13 @@ export type Project = {
   id: string;
   title: string;
   role?: string;
-  short: string; // one-line summary
-  impact?: string; // small metric or result
-  details?: string; // longer description (optional)
-  tech?: string[]; // small list of tech ids that map to ICON_MAP / TechIcon
-  thumbnail?: string | null; // path or URL to preview image (optional)
+  short: string;
+  problem: string;
+  contribution: string;
+  impact: string;
+  tech: string[];
+  confidential?: boolean;
+  thumbnail?: string | null;
   live?: string | null; // live demo URL
   repo?: string | null; // repo URL
 };
@@ -17,14 +19,16 @@ export const projects: Project[] = [
     id: "meddb",
     title: "Medication DB",
     role: "Technical Project Lead",
-    short:
-      "RAG-based clinical knowledge platform with searchable medication DB.",
+    short: "RAG-backed medication knowledge surface for clinical content teams.",
+    problem:
+      "Clinical teams needed a faster way to search medication content without exposing private source material or relying on brittle keyword lookup.",
+    contribution:
+      "Led the product architecture, retrieval flow, React interface, and integration path for ChromaDB with local LLM tooling.",
     impact:
-      "Improved retrieval accuracy for clinicians; RAG pipeline integrated.",
-    details:
-      "Led architecture and front-end for a Retrieval-Augmented Generation system that indexes clinical documents and exposes an interactive search UI. Designed data flows, schema, and the RAG UI components.",
-    tech: ["react", "rag", "chroma", "typescript", "tailwind", "php"],
-    thumbnail: "/projects/meddb.png",
+      "Improved answer discovery, reduced manual lookup friction, and created a reusable pattern for private clinical retrieval workflows.",
+    tech: ["react", "typescript", "tailwind", "php", "postgres", "chroma", "ollama"],
+    confidential: true,
+    thumbnail: null,
     live: null,
     repo: null,
   },
@@ -32,12 +36,15 @@ export const projects: Project[] = [
     id: "esc-web",
     title: "ESC Web App",
     role: "Lead Frontend Developer",
-    short:
-      "UI modernization and templating for a large image-heavy application.",
-    impact: "Reduced average load time by ~60% after refactor.",
-    details:
-      "Rewrote heavy image pages into efficient templates, added prefetching, and implemented micro-interactions for editorial workflows.",
-    tech: ["react", "tailwind", "vite"],
+    short: "Modernized a high-traffic clinical guideline web experience.",
+    problem:
+      "Image-heavy pages and legacy UI patterns made the product slower to load, harder to maintain, and less comfortable on mobile.",
+    contribution:
+      "Rebuilt key interfaces as responsive templates, tightened component structure, and improved interaction details for editors and readers.",
+    impact:
+      "Reduced page weight significantly, improved responsiveness, and made future guideline updates easier to ship.",
+    tech: ["react", "tailwind", "vite", "php"],
+    confidential: false,
     thumbnail: "/projects/esc-web.png",
     live: "https://guidelines.escardio.org/home/",
     repo: null,
@@ -46,13 +53,15 @@ export const projects: Project[] = [
     id: "cdst-editor",
     title: "CDST Editor",
     role: "Lead Developer",
-    short:
-      "Clinical Decision Support Tool (CDST) editor — editor UI for building and managing clinical decision rules and templates.",
+    short: "Authoring environment for clinical decision support content.",
+    problem:
+      "Editors needed safer workflows for creating, validating, previewing, and publishing structured clinical decision rules.",
+    contribution:
+      "Designed the editor UX, validation states, preview flows, and backend API contracts across React, PHP, and PostgreSQL.",
     impact:
-      "Enabled editors to create and update clinical decision templates faster with inline validation and preview; reduced edit-to-publish time by ~50%.",
-    details:
-      "Designed and implemented the interactive editor for CDST: a single-page editor with live preview, schema-driven validation, versioning/audit trail, and bulk import/export. Worked across the stack — backend APIs (Yii/PHP), PostgreSQL schemas, and a responsive React + Tailwind frontend with micro-interactions for a smooth authoring experience.",
-    tech: ["php", "mysql", "aws"],
+      "Shortened edit-to-review cycles and reduced preventable content errors through inline feedback and structured publishing flows.",
+    tech: ["react", "typescript", "tailwind", "php", "postgres"],
+    confidential: true,
     thumbnail: null,
     live: null,
     repo: null,
@@ -61,13 +70,15 @@ export const projects: Project[] = [
     id: "acoms",
     title: "ACOMS",
     role: "Fullstack / Lead UI Engineer",
-    short:
-      "Cross-platform clinical content management system powering editorial workflows.",
+    short: "Clinical content management platform for editorial operations.",
+    problem:
+      "A growing content workflow needed clearer interfaces, better validation, and more maintainable modules for repeated editorial tasks.",
+    contribution:
+      "Modernized UI modules, integrated backend APIs, improved data loading patterns, and introduced reusable layout conventions.",
     impact:
-      "Improved editorial efficiency by ~40% with streamlined UI flows, optimized page rendering, and better content validation tools.",
-    details:
-      "Worked on modernizing ACOMS — a clinical content management platform — by rebuilding key UI modules in React with modular components, real-time validation, optimized data loading patterns, and reusable layout primitives. Integrated backend APIs, improved accessibility, and introduced scalable design patterns for future modules.",
-    tech: ["php", "mysql", "aws"],
+      "Improved editorial throughput and created a cleaner foundation for future content management modules.",
+    tech: ["react", "php", "mysql", "aws"],
+    confidential: true,
     thumbnail: null,
     live: null,
     repo: null,

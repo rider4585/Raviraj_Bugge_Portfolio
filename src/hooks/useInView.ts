@@ -5,6 +5,9 @@ export default function useInView<T extends Element>(
 ) {
   const ref = useRef<T | null>(null);
   const [inView, setInView] = useState(false);
+  const root = options?.root;
+  const rootMargin = options?.rootMargin;
+  const threshold = options?.threshold;
 
   useEffect(() => {
     if (!ref.current) return;
@@ -19,11 +22,11 @@ export default function useInView<T extends Element>(
           }
         });
       },
-      { threshold: 0.18, ...options }
+      { root, rootMargin, threshold: threshold ?? 0.18 }
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, [ref.current]);
+  }, [root, rootMargin, threshold]);
 
   return { ref, inView };
 }

@@ -18,7 +18,7 @@ type AvatarProps = {
  * - Replace DEFAULT_SRC with your actual photo path
  */
 
-const DEFAULT_SRC = "/PASSPORT_PHOTO-min.jpg"; // <-- update this path when you add your photo
+const DEFAULT_SRC = "/PASSPORT_PHOTO-min.jpeg"; // <-- update this path when you add your photo
 
 export default function Avatar({
   src = DEFAULT_SRC,
